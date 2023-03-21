@@ -24,19 +24,19 @@ const users = [...Array(5)].map((_, index) => ({
     50,60,67
   ]),
 isVerified: faker.datatype.boolean(),
-  status: sample(['active', 'banned']),
-  role: sample([
-    'Leader',
-    'Hr Manager',
-    'UI Designer',
-    'UX Designer',
-    'UI/UX Designer',
-    'Project Manager',
-    'Backend Developer',
-    'Full Stack Designer',
-    'Front End Developer',
-    'Full Stack Developer',
-  ]),
+  status: sample(['Alive', 'Dead']),
+  // role: sample([
+  //   'Leader',
+  //   'Hr Manager',
+  //   'UI Designer',
+  //   'UX Designer',
+  //   'UI/UX Designer',
+  //   'Project Manager',
+  //   'Backend Developer',
+  //   'Full Stack Designer',
+  //   'Front End Developer',
+  //   'Full Stack Developer',
+  // ]),
 }));
 
 export default users;

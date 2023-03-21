@@ -39,8 +39,8 @@ const TABLE_HEAD = [
   { id: 'age', label: 'Age', alignRight: false },
   { id: 'gender', label: 'Gender', alignRight: false },
   { id: 'weight', label: 'Weight', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
-  { id: '' },
+  { id: 'status', label: 'Survival Status', alignRight: false },
+   { id: ''}
 ];
 
 // ----------------------------------------------------------------------
@@ -127,6 +127,28 @@ export default function UserPage() {
     setSelected(newSelected);
   };
 
+  const[record,setRecord] = useState([])
+
+  // const getdata = ()=>{
+  //   fetch('https://jsonplaceholder.typicode.com/users')
+  //   .then(response=>response.json())
+  //   .then(res=>setRecord(res))
+  // }
+  // useEffect(()=>{
+  //   getdata();
+  // },[])
+
+  const ShowDetail = ()=>{
+    const id2 = 2;
+    fetch('https://jsonplaceholder.typicode.com/todos/'+id2)
+      .then(response => response.json())
+      .then(json => console.log(json))
+  }
+
+  const OpenPanel =()=>{
+    alert("hello");
+  }
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -179,19 +201,23 @@ export default function UserPage() {
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
+                {/* {record.map((names,index)=> */}
+                
+                
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, age,gender,weight,status, company, avatarUrl, isVerified } = row;
+                    const { id, name, age,gender,weight,status,company, avatarUrl, isVerified } = row;
                     const selectedUser = selected.indexOf(name) !== -1;
 
                     return (
-                      <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser}>
-                        <TableCell padding="checkbox">
+                      <TableRow onClick={ShowDetail(id)}>
+                        <TableCell>
                           {/* <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} /> */}
                         </TableCell>
 
                         <TableCell>1</TableCell>
 
-                        <TableCell component="th" scope="row" padding="none">
+                        <TableCell component="th" scope="row" padding="none"
+                        onClick={OpenPanel}>
                           <Stack direction="row" alignItems="center" spacing={2}>
                              {/* <Avatar alt={name} src={avatarUrl} />  */}
                             <Typography variant="subtitle2" noWrap>
@@ -207,8 +233,10 @@ export default function UserPage() {
                         <TableCell align="left">{weight}</TableCell>
 
                         <TableCell align="left">
-                          <Label color={(status === 'banned' && 'error') || 'success'}>{sentenceCase(status)}</Label>
+                          <Label color={(status === 'Dead' && 'error') || 'success'}>{sentenceCase(status)}</Label>
                         </TableCell>
+
+                       
 
                         <TableCell align="right">
                           <IconButton size="large" color="inherit" onClick={handleOpenMenu}>
@@ -218,11 +246,13 @@ export default function UserPage() {
                       </TableRow>
                     );
                   })}
+                {/* )} */}
                   {emptyRows > 0 && (
                     <TableRow style={{ height: 53 * emptyRows }}>
                       <TableCell colSpan={6} />
                     </TableRow>
                   )}
+                
                 </TableBody>
 
                 {isNotFound && (
