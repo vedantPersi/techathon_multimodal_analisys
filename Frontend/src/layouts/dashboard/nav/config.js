@@ -27,6 +27,11 @@ const navConfig = [
   //   icon: icon('ic_blog'),
   // },
   {
+    title: 'DICOM Viewer',
+    path: '/dwvcomponent',
+    icon: icon('ic_lock'),
+  },
+  {
     title: 'login',
     path: '/login',
     icon: icon('ic_lock'),
@@ -34,7 +39,7 @@ const navConfig = [
   // {
   //   title: 'Not found',
   //   path: '/404',
-  //   icon: icon('ic_disabled'),
+  //   icon: icon('ic_blog'),
   // },
 ];
 
