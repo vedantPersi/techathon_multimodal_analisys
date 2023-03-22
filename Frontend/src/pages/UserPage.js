@@ -158,7 +158,7 @@ export default function UserPage() {
   return (
     <>
       <Helmet>
-        <title> User | Minimal UI </title>
+        <title> User </title>
       </Helmet>
 
       <Container>
@@ -216,10 +216,13 @@ export default function UserPage() {
 
                         <TableCell align="left">{weight}</TableCell>
 
-                        <TableCell align="left">{survivalStatus ? 'Alive' : 'Dead'}</TableCell>
+                        <TableCell align="left">
+                        <Label color={(survivalStatus === 'Dead' && 'error') || 'success'}>{sentenceCase(survivalStatus ? 'Alive' : 'Dead')}</Label>
+                        </TableCell>
 
+                        
                         {/* <TableCell align="left">
-                          <Label color={(survivalStatus === 'Alive' && 'Dead') || 'success'}>{sentenceCase(survivalStatus)}</Label>
+                          <Label color={(status === 'banned' && 'error') || 'success'}>{sentenceCase(status)}</Label>
                         </TableCell> */}
 
                         <TableCell align="right">

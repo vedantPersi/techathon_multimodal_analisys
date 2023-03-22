@@ -31,6 +31,11 @@ import TagsTable from './TagsTable';
 import './DwvComponent.css';
 import dwv from 'dwv';
 
+import Nav from './layouts/dashboard/nav';
+import Header from './layouts/dashboard/header';
+import { Outlet } from 'react-router-dom';
+
+
 // Image decoders (for web workers)
 dwv.image.decoderScripts = {
   "jpeg2000": `${process.env.PUBLIC_URL}/assets/dwv/decoders/pdfjs/decode-jpeg2000.js`,
@@ -110,6 +115,7 @@ class DwvComponent extends React.Component {
 
     return (
       <div id="dwv">
+              
         <LinearProgress variant="determinate" value={loadProgress} />
         <Stack direction="row" spacing={1} padding={1} justifyContent="center">
           <ToggleButtonGroup size="small"
@@ -162,11 +168,18 @@ class DwvComponent extends React.Component {
           </Dialog>
         </Stack>
 
+        {/* <Header onOpenNav={() => setOpen(true)} /> */}
+
+          <Nav/>
+            
+          <Outlet />
+        
+
         <div id="layerGroup0" className="layerGroup">
           <div id="dropBox"></div>
         </div>
 
-        <div><p className="legend">
+        {/* <div><p className="legend">
           <Typography variant="caption">Powered by <Link
               href="https://github.com/ivmartel/dwv"
               title="dwv on github"
@@ -177,7 +190,7 @@ class DwvComponent extends React.Component {
               color="inherit">React
             </Link> {versions.react}
           </Typography>
-        </p></div>
+        </p></div> */}
 
       </div>
     );
