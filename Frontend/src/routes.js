@@ -22,7 +22,7 @@ export default function Router() {
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'dwvcomponent', element: <DwvComponent /> },
-        { path: 'products', element: <ProductsPage /> },
+        { path: 'userDetails', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },
       ],
     },

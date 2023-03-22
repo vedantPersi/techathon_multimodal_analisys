@@ -210,7 +210,7 @@ export default function UserPage() {
                     return (
                       
                       <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser}
-                        onClick={()=>navigate("/dashboard/app")}
+                        onClick={()=>navigate("/dashboard/userDetails")}
                       >
                         {/* <TableCell padding="checkbox">
                           <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} />
