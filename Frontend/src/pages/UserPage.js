@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 // @mui
 import {
   Card,
@@ -81,6 +83,18 @@ export default function UserPage() {
   
   }, []);
 
+  // const showDetail = () =>{
+  //   // fetch(`https://jsonplaceholder.typicode.com/todos/1`)
+  //   //   .then(resposne=> resposne.json())
+  //   //   //.then(res=>setModeldata(res))
+  //   //   console.log(response);
+  //   //   //alert("hello");
+
+  //   fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+  //     .then(response => response.json())
+  //     .then(json => console.log(json))
+  // }
+
   const [open, setOpen] = useState(null);
 
   const [page, setPage] = useState(0);
@@ -155,6 +169,8 @@ export default function UserPage() {
 
   const isNotFound = !filteredUsers.length && !!filterName;
 
+  const navigate = useNavigate();
+
   return (
     <>
       <Helmet>
@@ -192,7 +208,10 @@ export default function UserPage() {
                     const selectedUser = selected.indexOf(name) !== -1;
 
                     return (
-                      <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser}>
+                      
+                      <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser}
+                        onClick={()=>navigate("/dashboard/app")}
+                      >
                         {/* <TableCell padding="checkbox">
                           <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} />
                         </TableCell> */}
@@ -231,8 +250,10 @@ export default function UserPage() {
                           </IconButton>
                         </TableCell>
                       </TableRow>
+                        
                     );
                   })}
+                  
                   {emptyRows > 0 && (
                     <TableRow style={{ height: 53 * emptyRows }}>
                       <TableCell colSpan={6} />
