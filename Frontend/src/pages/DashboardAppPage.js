@@ -76,7 +76,7 @@ export default function DashboardAppPage() {
                   data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
                 },
                 {
-                  name: 'Tired of Medaication',
+                  name: 'Tired of Medication',
                   type: 'area',
                   fill: 'gradient',
                   data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],

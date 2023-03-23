@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
 // @mui
 import { Container, Stack, Typography, Grid, Continer, Table, TableHead, TableBody, TableCell, TableRow, Card } from '@mui/material';
@@ -66,13 +66,25 @@ export default function ProductsPage() {
     { id: "response", label: "Response", minWidth: 100},
   ];
 
-  const rows_generic = [
-    { month: "January", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 5, kras_count: 3, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Partial"},
-    { month: "February", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 6, kras_count: 4, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Stable"},
-    { month: "March", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 7, kras_count: 5, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Progressive"},
-    { month: "April", smoking_status: "Yes", cancer_stage: "Stage III", mutation_count: 9, kras_count: 6, egfr_count: 3, tp53_count: 0, alk_fusion_status: "Positive", ros1_fusion_status: "Negative", treatment: "Immunotherapy", response: "Stable"},
-    { month: "May", smoking_status: "No", cancer_stage: "Stage III", mutation_count: 10, kras_count: 7, egfr_count: 3, tp53_count: 1, alk_fusion_status: "Positive", ros1_fusion_status: "Negative", treatment: "Immunotherapy", response: "Partial"},
-  ];
+  // const rows_generic = [
+  //   { month: "January", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 5, kras_count: 3, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Partial"},
+  //   { month: "February", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 6, kras_count: 4, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Stable"},
+  //   { month: "March", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 7, kras_count: 5, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Progressive"},
+  //   { month: "April", smoking_status: "Yes", cancer_stage: "Stage III", mutation_count: 9, kras_count: 6, egfr_count: 3, tp53_count: 0, alk_fusion_status: "Positive", ros1_fusion_status: "Negative", treatment: "Immunotherapy", response: "Stable"},
+  //   { month: "May", smoking_status: "No", cancer_stage: "Stage III", mutation_count: 10, kras_count: 7, egfr_count: 3, tp53_count: 1, alk_fusion_status: "Positive", ros1_fusion_status: "Negative", treatment: "Immunotherapy", response: "Partial"},
+  // ];
+
+  const [rows_generic, setGenericData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+        setUserList(json)
+      })
+  
+  }, []);
 
   return (
     // <>
@@ -152,7 +164,7 @@ export default function ProductsPage() {
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
-          <Typography variant="h6">Daignosed with</Typography>
+          <Typography variant="h6">Diagnosed with</Typography>
           <Typography variant="body">Diabetes, Hypertension, Bronchogenic carcinoma</Typography>
         </Grid>
 
@@ -252,14 +264,14 @@ export default function ProductsPage() {
               {rows_generic.map((row) => (
                 <TableRow key={row.id}>
                   <TableCell align="left">{row.month}</TableCell>
-                  <TableCell align="left">{row.smoking_status}</TableCell>
-                  <TableCell align="left">{row.cancer_stage}</TableCell>
-                  <TableCell align="left">{row.mutation_count}</TableCell>
-                  <TableCell align="left">{row.kras_count}</TableCell>
-                  <TableCell align="left">{row.egfr_count}</TableCell>
-                  <TableCell align="left">{row.tp53_count}</TableCell>
-                  <TableCell align="left">{row.alk_fusion_status}</TableCell>
-                  <TableCell align="left">{row.ros1_fusion_status}</TableCell>
+                  <TableCell align="left">{row.smokingStatus}</TableCell>
+                  <TableCell align="left">{row.cancerStage}</TableCell>
+                  <TableCell align="left">{row.mutationCount}</TableCell>
+                  <TableCell align="left">{row.krasMutationCount}</TableCell>
+                  <TableCell align="left">{row.egfrMutationCount}</TableCell>
+                  <TableCell align="left">{row.tp53MutationCount}</TableCell>
+                  <TableCell align="left">{row.alkFusionStatus}</TableCell>
+                  <TableCell align="left">{row.ros1FusionStatus}</TableCell>
                   <TableCell align="left">{row.treatment}</TableCell>
                   <TableCell align="left">{row.response}</TableCell>
                 </TableRow>
