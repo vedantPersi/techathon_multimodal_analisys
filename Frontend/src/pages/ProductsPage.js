@@ -32,8 +32,7 @@ export default function ProductsPage() {
     setOpenFilter(false);
   };
 
-  const columns = [
-    
+  const columns_pathalogy = [
     { id: "wbcCount", label: "WBC Count", minWidth: 100},
     { id: "rbcCount", label: "RBC Count", minWidth: 100},
     { id: "hemoglobin", label: "Hemoglobin", minWidth: 100},
@@ -44,8 +43,30 @@ export default function ProductsPage() {
     { id: "chloride", label: "Chloride", minWidth: 100},
   ];
 
-  const rows = [
+  const rows_pathalogy = [
     { wbcCount: 4, rbcCount: 13.5, hemoglobin: 30, hematocrit: 33.5, plateletCount: 180, sodium: 137, potassium: 3.7, chloride: 97}
+  ];
+
+  const columns_generic = [
+    { id: "month", label: "Month", minWidth: 100},
+    { id: "smoking_status", label: "Smoking Status", minWidth: 100},
+    { id: "cancer_stage", label: "Cancer Stage", minWidth: 100},
+    { id: "mutation_count", label: "Mutation Count", minWidth: 100},
+    { id: "kras_count", label: "KRAS Mutation Count", minWidth: 100},
+    { id: "egfr_count", label: "EGFR Mutation Count", minWidth: 100},
+    { id: "tp53_count", label: "TP53 Mutation Count", minWidth: 100},
+    { id: "alk_fusion_status", label: "ALK Fusion Status", minWidth: 100},
+    { id: "ros1_fusion_status", label: "ROS1 Fucion Status", minWidth: 100},
+    { id: "treatment", label: "Treatment", minWidth: 100},
+    { id: "response", label: "Response", minWidth: 100},
+  ];
+
+  const rows_generic = [
+    { month: "January", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 5, kras_count: 3, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Partial"},
+    { month: "February", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 6, kras_count: 4, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Stable"},
+    { month: "March", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 7, kras_count: 5, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Progressive"},
+    { month: "April", smoking_status: "Yes", cancer_stage: "Stage III", mutation_count: 9, kras_count: 6, egfr_count: 3, tp53_count: 0, alk_fusion_status: "Positive", ros1_fusion_status: "Negative", treatment: "Immunotherapy", response: "Stable"},
+    { month: "May", smoking_status: "No", cancer_stage: "Stage III", mutation_count: 10, kras_count: 7, egfr_count: 3, tp53_count: 1, alk_fusion_status: "Positive", ros1_fusion_status: "Negative", treatment: "Immunotherapy", response: "Partial"},
   ];
 
   return (
@@ -105,11 +126,15 @@ export default function ProductsPage() {
           <Typography variant="body">vedant@gmail.com</Typography>
         </Grid>
 
+        {/* Pathology Reports */}
         <Grid item xs={12} md={6} lg={12}>
+          <Typography variant="h5" sx={{ mb: 1 }}>
+            Blood Test Reports
+          </Typography>
           <Table>
             <TableHead>
               <TableRow>
-                {columns.map((column) => (
+                {columns_pathalogy.map((column) => (
                   <TableCell key={column.id} align="left" style={{ minWidth: column.minWidth }}>
                     {column.label}
                   </TableCell>
@@ -118,9 +143,8 @@ export default function ProductsPage() {
             </TableHead>
 
             <TableBody>
-              {rows.map((row) => (
+              {rows_pathalogy.map((row) => (
                 <TableRow key={row.id}>
-                  
                   <TableCell align="left">{row.wbcCount}</TableCell>
                   <TableCell align="left">{row.rbcCount}</TableCell>
                   <TableCell align="left">{row.hemoglobin}</TableCell>
@@ -129,13 +153,17 @@ export default function ProductsPage() {
                   <TableCell align="left">{row.sodium}</TableCell>
                   <TableCell align="left">{row.potassium}</TableCell>
                   <TableCell align="left">{row.chloride}</TableCell>
-                  
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </Grid>
 
+        <Typography variant="h6">
+        -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        </Typography>
+
+        {/* Generic Alteration */}
         <Grid item xs={12} md={6} lg={12}>
           <AppWebsiteVisits
             title="Generic Alteration"
@@ -146,40 +174,63 @@ export default function ProductsPage() {
               '03/01/2023',
               '04/01/2023',
               '05/01/2023',
-              '06/01/2023',
-              '07/01/2023',
-              '08/01/2023',
-              '09/01/2023',
-              '10/01/2023',
-              '11/01/2023',
             ]}
             chartData={[
               {
                 name: 'Mutation Count',
                 type: 'column',
                 fill: 'solid',
-                data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+                data: [5, 6, 7, 9, 10],
               },
               {
                 name: 'KRAS Mutation Count',
                 type: 'column',
                 fill: 'solid',
-                data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
+                data: [3, 4, 5, 6, 7],
               },
               {
                 name: 'EGFR Mutation Count',
                 type: 'column',
                 fill: 'solid',
-                data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
+                data: [2, 2, 2, 3, 3],
               },
               {
                 name: 'TP53 Mutation Count',
                 type: 'column',
                 fill: 'solid',
-                data: [25, 34, 32, 28, 41, 28, 61, 58, 59, 36, 39],
+                data: [0, 0, 0, 0, 1],
               },
             ]}
           />
+          <Table>
+            <TableHead>
+              <TableRow>
+                {columns_generic.map((column) => (
+                  <TableCell key={column.id} align="left" style={{ minWidth: column.minWidth }}>
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {rows_generic.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell align="left">{row.month}</TableCell>
+                  <TableCell align="left">{row.smoking_status}</TableCell>
+                  <TableCell align="left">{row.cancer_stage}</TableCell>
+                  <TableCell align="left">{row.mutation_count}</TableCell>
+                  <TableCell align="left">{row.kras_count}</TableCell>
+                  <TableCell align="left">{row.egfr_count}</TableCell>
+                  <TableCell align="left">{row.tp53_count}</TableCell>
+                  <TableCell align="left">{row.alk_fusion_status}</TableCell>
+                  <TableCell align="left">{row.ros1_fusion_status}</TableCell>
+                  <TableCell align="left">{row.treatment}</TableCell>
+                  <TableCell align="left">{row.response}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         </Grid>
       </Grid>
     </Container>

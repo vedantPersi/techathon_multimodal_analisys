@@ -236,7 +236,7 @@ export default function UserPage() {
                         <TableCell align="left">{weight}</TableCell>
 
                         <TableCell align="left">
-                        <Label color={(survivalStatus === 'Dead' && 'error') || 'success'}>{sentenceCase(survivalStatus ? 'Alive' : 'Dead')}</Label>
+                        <Label>{survivalStatus ? 'Alive' : 'Dead'}</Label>
                         </TableCell>
 
                         

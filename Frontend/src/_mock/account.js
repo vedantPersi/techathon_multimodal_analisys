@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 
 const account = {
-  displayName: 'Dr. Rushikesh Patil',
+  displayName: 'Dr. Vaibhav',
   email: 'demo@email.com',
   photoURL: '/assets/images/avatars/avatar_18.jpg',
 };
