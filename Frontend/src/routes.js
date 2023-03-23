@@ -20,7 +20,7 @@ export default function Router() {
       children: [
         { element: <Navigate to="/dashboard/app" />, index: true },
         { path: 'app', element: <DashboardAppPage /> },
-        { path: 'user', element: <UserPage /> },
+        { path: 'patients', element: <UserPage /> },
         { path: 'dwvcomponent', element: <DwvComponent /> },
         { path: 'userDetails', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },

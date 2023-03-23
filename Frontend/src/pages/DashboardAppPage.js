@@ -40,15 +40,15 @@ export default function DashboardAppPage() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Critical Patient" total={67} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="Alive" total={658} color="info" icon={'ant-design:apple-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Your Patients" total={17} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary title="Critical" total={24} color="warning" icon={'ant-design:windows-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Empty Beds" total={103} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="Deceased" total={56} color="error" icon={'ant-design:bug-filled'} />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
@@ -93,12 +93,11 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
-              title="Current Visits"
+              title="Treatment Status"
               chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
+                { label: 'Treated', value: 658 },
+                { label: 'Udergoing Treatment', value: 49 },
+                { label: 'N/A', value: 23 },
               ]}
               chartColors={[
                 theme.palette.primary.main,
@@ -111,19 +110,18 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
-              title="Conversion Rates"
-              subheader="(+43%) than last year"
+              title="Patients Age Group"
+              subheader="(+43%) patients belong to 60-80 age group"
               chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
+                { label: '0-10', value: 26 },
+                { label: '10-20', value: 34 },
+                { label: '20-30', value: 43 },
+                { label: '30-40', value: 63 },
+                { label: '40-50', value: 88 },
+                { label: '50-60', value: 99 },
+                { label: '60-70', value: 120 },
+                { label: '70-80', value: 105 },
+                { label: '80+', value: 87 },
               ]}
             />
           </Grid>
