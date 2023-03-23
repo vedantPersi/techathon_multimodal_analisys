@@ -54,35 +54,77 @@ export default function ProductsPage() {
 
   const columns_generic = [
     { id: "month", label: "Month", minWidth: 100},
-    { id: "smoking_status", label: "Smoking Status", minWidth: 100},
-    { id: "cancer_stage", label: "Cancer Stage", minWidth: 100},
-    { id: "mutation_count", label: "Mutation Count", minWidth: 100},
-    { id: "kras_count", label: "KRAS Mutation Count", minWidth: 100},
-    { id: "egfr_count", label: "EGFR Mutation Count", minWidth: 100},
-    { id: "tp53_count", label: "TP53 Mutation Count", minWidth: 100},
-    { id: "alk_fusion_status", label: "ALK Fusion Status", minWidth: 100},
-    { id: "ros1_fusion_status", label: "ROS1 Fucion Status", minWidth: 100},
+    { id: "smokingStatus", label: "Smoking Status", minWidth: 100},
+    { id: "cancerStage", label: "Cancer Stage", minWidth: 100},
+    { id: "mutationCount", label: "Mutation Count", minWidth: 100},
+    { id: "krasMutationCount", label: "KRAS Mutation Count", minWidth: 100},
+    { id: "egfrMutationCount", label: "EGFR Mutation Count", minWidth: 100},
+    { id: "tp53MutationCount", label: "TP53 Mutation Count", minWidth: 100},
+    { id: "alkFusionStatus", label: "ALK Fusion Status", minWidth: 100},
+    { id: "ros1FusionStatus", label: "ROS1 Fucion Status", minWidth: 100},
     { id: "treatment", label: "Treatment", minWidth: 100},
     { id: "response", label: "Response", minWidth: 100},
   ];
 
-  // const rows_generic = [
-  //   { month: "January", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 5, kras_count: 3, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Partial"},
-  //   { month: "February", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 6, kras_count: 4, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Stable"},
-  //   { month: "March", smoking_status: "Yes", cancer_stage: "Stage II", mutation_count: 7, kras_count: 5, egfr_count: 2, tp53_count: 0, alk_fusion_status: "Negative", ros1_fusion_status: "Positive", treatment: "Chemotherapy", response: "Progressive"},
-  //   { month: "April", smoking_status: "Yes", cancer_stage: "Stage III", mutation_count: 9, kras_count: 6, egfr_count: 3, tp53_count: 0, alk_fusion_status: "Positive", ros1_fusion_status: "Negative", treatment: "Immunotherapy", response: "Stable"},
-  //   { month: "May", smoking_status: "No", cancer_stage: "Stage III", mutation_count: 10, kras_count: 7, egfr_count: 3, tp53_count: 1, alk_fusion_status: "Positive", ros1_fusion_status: "Negative", treatment: "Immunotherapy", response: "Partial"},
-  // ];
+  const sample_chart_data = [
+    {
+      name: 'Mutation Count',
+      type: 'column',
+      fill: 'solid',
+      data: [5, 6, 7, 9, 10],
+    },
+    {
+      name: 'KRAS Mutation Count',
+      type: 'column',
+      fill: 'solid',
+      data: [3, 4, 5, 6, 7],
+    },
+    {
+      name: 'EGFR Mutation Count',
+      type: 'column',
+      fill: 'solid',
+      data: [2, 2, 2, 3, 3],
+    },
+    {
+      name: 'TP53 Mutation Count',
+      type: 'column',
+      fill: 'solid',
+      data: [0, 0, 0, 0, 1],
+    },
+  ];
+
+  const rows_generic_sample = [
+    { month: "January", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 5, krasMutationCount: 3, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Partial"},
+    { month: "February", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 6, krasMutationCount: 4, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Stable"},
+    { month: "March", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 7, krasMutationCount: 5, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Progressive"},
+    { month: "April", smokingStatus: "Yes", cancerStage: "Stage III", mutationCount: 9, krasMutationCount: 6, egfrMutationCount: 3, tp53MutationCount: 0, alkFusionStatus: "Positive", ros1FusionStatus: "Negative", treatment: "Immunotherapy", response: "Stable"},
+    { month: "May", smokingStatus: "No", cancerStage: "Stage III", mutationCount: 10, krasMutationCount: 7, egfrMutationCount: 3, tp53MutationCount: 1, alkFusionStatus: "Positive", ros1FusionStatus: "Negative", treatment: "Immunotherapy", response: "Partial"},
+  ];
 
   const [rows_generic, setGenericData] = useState([]);
+  const [chart_data, setChartData] = useState([]);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => response.json())
       .then(json => {
         console.log(json)
-        setUserList(json)
+        console.log(json)
+        if(json){
+          setGenericData(json)
+        }
+        setGenericData(rows_generic_sample)
       })
+
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      if(json){
+        setChartData(json)
+      }
+      setChartData(sample_chart_data)
+    })
   
   }, []);
 
@@ -222,32 +264,7 @@ export default function ProductsPage() {
               '04/01/2023',
               '05/01/2023',
             ]}
-            chartData={[
-              {
-                name: 'Mutation Count',
-                type: 'column',
-                fill: 'solid',
-                data: [5, 6, 7, 9, 10],
-              },
-              {
-                name: 'KRAS Mutation Count',
-                type: 'column',
-                fill: 'solid',
-                data: [3, 4, 5, 6, 7],
-              },
-              {
-                name: 'EGFR Mutation Count',
-                type: 'column',
-                fill: 'solid',
-                data: [2, 2, 2, 3, 3],
-              },
-              {
-                name: 'TP53 Mutation Count',
-                type: 'column',
-                fill: 'solid',
-                data: [0, 0, 0, 0, 1],
-              },
-            ]}
+            chartData={chart_data}
           />
           <Table>
             <TableHead>
