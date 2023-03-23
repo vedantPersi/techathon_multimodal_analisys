@@ -126,7 +126,7 @@ export default function ProductsPage() {
         <Grid item xs={12} md={6} lg={12}>
           <AppWebsiteVisits
             title="Generic Alteration"
-            //subheader="Comparison of how patients are responding to Medications"
+            subheader="Small cell lung cancer(NSCLC), which is the most common type of lung cancer"
             chartLabels={[
               '01/01/2023',
               '02/01/2023',
