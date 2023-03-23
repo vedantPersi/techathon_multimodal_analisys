@@ -33,13 +33,19 @@ export default function ProductsPage() {
   };
 
   const columns = [
-    { id: "name", label: "Name", minWidth: 100},
-    { id: "age", label: "Age", minWidth: 100},
-    { id: "email", label: "Email", minWidth: 100}
+    
+    { id: "wbcCount", label: "WBC Count", minWidth: 100},
+    { id: "rbcCount", label: "RBC Count", minWidth: 100},
+    { id: "hemoglobin", label: "Hemoglobin", minWidth: 100},
+    { id: "hematocrit", label: "Hematocrit", minWidth: 100},
+    { id: "plateletCount", label: "Platelet count", minWidth: 100},
+    { id: "sodium", label: "Sodium", minWidth: 100},
+    { id: "potassium", label: "Potassium", minWidth: 100},
+    { id: "chloride", label: "Chloride", minWidth: 100},
   ];
 
   const rows = [
-    { id: 1, name: "ASD", age: 30, email: "asd@asd.com"}
+    { wbcCount: 4, rbcCount: 13.5, hemoglobin: 30, hematocrit: 33.5, plateletCount: 180, sodium: 137, potassium: 3.7, chloride: 97}
   ];
 
   return (
@@ -70,7 +76,7 @@ export default function ProductsPage() {
     // </>
     <Container maxWidth="xl">
       <Typography variant="h4" sx={{ mb: 5 }}>
-        User Details
+        Patient Details
       </Typography>
 
       <Grid container spacing={3}>
@@ -114,9 +120,16 @@ export default function ProductsPage() {
             <TableBody>
               {rows.map((row) => (
                 <TableRow key={row.id}>
-                  <TableCell align="left">{row.name}</TableCell>
-                  <TableCell align="left">{row.age}</TableCell>
-                  <TableCell align="left">{row.email}</TableCell>
+                  
+                  <TableCell align="left">{row.wbcCount}</TableCell>
+                  <TableCell align="left">{row.rbcCount}</TableCell>
+                  <TableCell align="left">{row.hemoglobin}</TableCell>
+                  <TableCell align="left">{row.hematocrit}</TableCell>
+                  <TableCell align="left">{row.plateletCount}</TableCell>
+                  <TableCell align="left">{row.sodium}</TableCell>
+                  <TableCell align="left">{row.potassium}</TableCell>
+                  <TableCell align="left">{row.chloride}</TableCell>
+                  
                 </TableRow>
               ))}
             </TableBody>
