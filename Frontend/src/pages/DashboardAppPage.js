@@ -36,25 +36,25 @@ export default function DashboardAppPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Patients" total={714} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="Total Patients" total={714} icon={'ant-design:idcard-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Alive" total={658} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="Alive" total={658} color="info" icon={'ant-design:smile-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Critical" total={24} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary title="Critical" total={24} color="warning" icon={'ant-design:meh-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Deceased" total={56} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="Deceased" total={56} color="error" icon={'ant-design:frown-filled'} />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
-              title="MRD Curve"
-              subheader="Comparison of how patients are responding to Medications"
+              title="Daily Patient Status"
+              subheader="A consolidated view of patients emotions"
               chartLabels={[
                 '01/01/2023',
                 '02/01/2023',
@@ -70,19 +70,19 @@ export default function DashboardAppPage() {
               ]}
               chartData={[
                 {
-                  name: 'Team A',
+                  name: 'Happy',
                   type: 'column',
                   fill: 'solid',
                   data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
                 },
                 {
-                  name: 'Team B',
+                  name: 'Tired of Medaication',
                   type: 'area',
                   fill: 'gradient',
                   data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
                 },
                 {
-                  name: 'Team C',
+                  name: 'Sad',
                   type: 'line',
                   fill: 'solid',
                   data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
@@ -96,7 +96,7 @@ export default function DashboardAppPage() {
               title="Treatment Status"
               chartData={[
                 { label: 'Treated', value: 658 },
-                { label: 'Udergoing Treatment', value: 49 },
+                { label: 'Undergoing Treatment', value: 49 },
                 { label: 'N/A', value: 23 },
               ]}
               chartColors={[
@@ -108,7 +108,7 @@ export default function DashboardAppPage() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          <Grid item xs={12} md={6} lg={12}>
             <AppConversionRates
               title="Patients Age Group"
               subheader="(+43%) patients belong to 60-80 age group"
@@ -126,7 +126,7 @@ export default function DashboardAppPage() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
               title="Current Subject"
               chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
@@ -137,7 +137,7 @@ export default function DashboardAppPage() {
               ]}
               chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
-          </Grid>
+          </Grid> */}
 
           {/* <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate

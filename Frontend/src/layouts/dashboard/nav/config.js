@@ -29,12 +29,12 @@ const navConfig = [
   {
     title: 'DICOM Viewer',
     path: '/dwvcomponent',
-    icon: icon('ic_lock'),
+    icon: icon('ic_dicom'),
   },
   {
-    title: 'login',
+    title: 'Logout',
     path: '/login',
-    icon: icon('ic_lock'),
+    icon: icon('ic_logout'),
   },
   // {
   //   title: 'Not found',
