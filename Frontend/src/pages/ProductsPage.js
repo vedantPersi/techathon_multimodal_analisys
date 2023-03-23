@@ -33,6 +33,7 @@ export default function ProductsPage() {
   };
 
   const columns_pathalogy = [
+    { id: "month", label: "Month", minWidth: 100},
     { id: "wbcCount", label: "WBC Count", minWidth: 100},
     { id: "rbcCount", label: "RBC Count", minWidth: 100},
     { id: "hemoglobin", label: "Hemoglobin", minWidth: 100},
@@ -44,7 +45,11 @@ export default function ProductsPage() {
   ];
 
   const rows_pathalogy = [
-    { wbcCount: 4, rbcCount: 13.5, hemoglobin: 30, hematocrit: 33.5, plateletCount: 180, sodium: 137, potassium: 3.7, chloride: 97}
+    { month: "January", wbcCount: 5.8, rbcCount: 4, hemoglobin: 33.5, hematocrit: 333.5, plateletCount: 180, sodium: 137, potassium: 3.7, chloride: 97},
+    { month: "February", wbcCount: 6.7, rbcCount: 4.2, hemoglobin: 38.6, hematocrit: 38.6, plateletCount: 200, sodium: 140, potassium: 4.6, chloride: 100},
+    { month: "March", wbcCount: 4.9, rbcCount: 4.7, hemoglobin: 44.2, hematocrit: 44.2, plateletCount: 230, sodium: 139, potassium: 5.1, chloride: 104},
+    { month: "April", wbcCount: 7.1, rbcCount: 4.6, hemoglobin: 36.8, hematocrit: 36.8, plateletCount: 210, sodium: 142, potassium: 4.7, chloride: 98},
+    { month: "May", wbcCount: 5.2, rbcCount: 4.8, hemoglobin: 48.3, hematocrit: 48.3, plateletCount: 260, sodium: 141, potassium: 3.9, chloride: 101},
   ];
 
   const columns_generic = [
@@ -97,7 +102,7 @@ export default function ProductsPage() {
     // </>
     <Container maxWidth="xl">
       <Typography variant="h4" sx={{ mb: 5 }}>
-        Patient Details
+        Patient Report
       </Typography>
 
       <Grid container spacing={3}>
@@ -126,6 +131,35 @@ export default function ProductsPage() {
           <Typography variant="body">vedant@gmail.com</Typography>
         </Grid>
 
+        <Grid item xs={12} md={6} lg={4}>
+          <Typography variant="h6">Gender</Typography>
+          <Typography variant="body">Male</Typography>
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={4}>
+          <Typography variant="h6">Blood Group</Typography>
+          <Typography variant="body">A+</Typography>
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={4}>
+          <Typography variant="h6">Age</Typography>
+          <Typography variant="body">58</Typography>
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={6}>
+          <Typography variant="h6">Address</Typography>
+          <Typography variant="body">400 Milford Street, New Hampshire, Manchester - 03103</Typography>
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={6}>
+          <Typography variant="h6">Daignosed with</Typography>
+          <Typography variant="body">Diabetes, Hypertension, Bronchogenic carcinoma</Typography>
+        </Grid>
+
+        <Typography variant="h6">
+        -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        </Typography>
+
         {/* Pathology Reports */}
         <Grid item xs={12} md={6} lg={12}>
           <Typography variant="h5" sx={{ mb: 1 }}>
@@ -145,6 +179,7 @@ export default function ProductsPage() {
             <TableBody>
               {rows_pathalogy.map((row) => (
                 <TableRow key={row.id}>
+                  <TableCell align="left">{row.month}</TableCell>
                   <TableCell align="left">{row.wbcCount}</TableCell>
                   <TableCell align="left">{row.rbcCount}</TableCell>
                   <TableCell align="left">{row.hemoglobin}</TableCell>
