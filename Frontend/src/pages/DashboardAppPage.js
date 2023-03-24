@@ -52,8 +52,8 @@ export default function DashboardAppPage() {
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
-            <AppWebsiteVisits
-              title="Daily Patient Status"
+            <AppWebsiteVisits 
+              title="Daily Patient Feedback"
               subheader="A consolidated view of patients emotions"
               chartLabels={[
                 '01/01/2023',
@@ -68,32 +68,36 @@ export default function DashboardAppPage() {
                 '10/01/2023',
                 '11/01/2023',
               ]}
-              chartData={[
+              chartData={ [
                 {
                   name: 'Happy',
                   type: 'column',
                   fill: 'solid',
+                  color: '#FFB26B',
                   data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
                 },
                 {
                   name: 'Tired of Medication',
                   type: 'area',
                   fill: 'gradient',
+                  color: '#FF7B54',
                   data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
                 },
                 {
                   name: 'Sad',
                   type: 'line',
                   fill: 'solid',
+                  color: '#FFD56F',
                   data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
                 },
               ]}
-            />
+              />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Treatment Status"
+              subheader="Overall satisfaction rate"
               chartData={[
                 { label: 'Treated', value: 658 },
                 { label: 'Undergoing Treatment', value: 49 },
@@ -122,6 +126,17 @@ export default function DashboardAppPage() {
                 { label: '60-70', value: 120 },
                 { label: '70-80', value: 105 },
                 { label: '80+', value: 87 },
+              ]}
+              chartColors={[
+                theme.palette.primary.main,
+                '#FFCC29',
+                '#FFCC29',
+                '#FFCC29',
+                '#FFCC29',
+                '#FFCC29',
+                '#FFCC29',
+                '#FFCC29',
+                '#FFCC29'
               ]}
             />
           </Grid>
