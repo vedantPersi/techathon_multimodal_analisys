@@ -74,6 +74,7 @@ function applySortFilter(array, comparator, query) {
 
 export default function UserPage() {
   useEffect(() => {
+    //fetch("http://localhost:8080/patient/get")
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => response.json())
       .then(json => {

@@ -33,7 +33,7 @@ export default function ProductsPage() {
   };
 
   const columns_pathalogy = [
-    { id: "month", label: "Month", minWidth: 100},
+    { id: "date", label: "Date", minWidth: 100},
     { id: "wbcCount", label: "WBC Count", minWidth: 100},
     { id: "rbcCount", label: "RBC Count", minWidth: 100},
     { id: "hemoglobin", label: "Hemoglobin", minWidth: 100},
@@ -45,15 +45,15 @@ export default function ProductsPage() {
   ];
 
   const rows_pathalogy = [
-    { month: "January", wbcCount: 5.8, rbcCount: 4, hemoglobin: 33.5, hematocrit: 333.5, plateletCount: 180, sodium: 137, potassium: 3.7, chloride: 97},
-    { month: "February", wbcCount: 6.7, rbcCount: 4.2, hemoglobin: 38.6, hematocrit: 38.6, plateletCount: 200, sodium: 140, potassium: 4.6, chloride: 100},
-    { month: "March", wbcCount: 4.9, rbcCount: 4.7, hemoglobin: 44.2, hematocrit: 44.2, plateletCount: 230, sodium: 139, potassium: 5.1, chloride: 104},
-    { month: "April", wbcCount: 7.1, rbcCount: 4.6, hemoglobin: 36.8, hematocrit: 36.8, plateletCount: 210, sodium: 142, potassium: 4.7, chloride: 98},
-    { month: "May", wbcCount: 5.2, rbcCount: 4.8, hemoglobin: 48.3, hematocrit: 48.3, plateletCount: 260, sodium: 141, potassium: 3.9, chloride: 101},
+    { date: "January", wbcCount: 5.8, rbcCount: 4, hemoglobin: 33.5, hematocrit: 333.5, plateletCount: 180, sodium: 137, potassium: 3.7, chloride: 97},
+    { date: "February", wbcCount: 6.7, rbcCount: 4.2, hemoglobin: 38.6, hematocrit: 38.6, plateletCount: 200, sodium: 140, potassium: 4.6, chloride: 100},
+    { date: "March", wbcCount: 4.9, rbcCount: 4.7, hemoglobin: 44.2, hematocrit: 44.2, plateletCount: 230, sodium: 139, potassium: 5.1, chloride: 104},
+    { date: "April", wbcCount: 7.1, rbcCount: 4.6, hemoglobin: 36.8, hematocrit: 36.8, plateletCount: 210, sodium: 142, potassium: 4.7, chloride: 98},
+    { date: "May", wbcCount: 5.2, rbcCount: 4.8, hemoglobin: 48.3, hematocrit: 48.3, plateletCount: 260, sodium: 141, potassium: 3.9, chloride: 101},
   ];
 
   const columns_generic = [
-    { id: "month", label: "Month", minWidth: 100},
+    { id: "date", label: "Date", minWidth: 100},
     { id: "smokingStatus", label: "Smoking Status", minWidth: 100},
     { id: "cancerStage", label: "Cancer Stage", minWidth: 100},
     { id: "mutationCount", label: "Mutation Count", minWidth: 100},
@@ -66,7 +66,15 @@ export default function ProductsPage() {
     { id: "response", label: "Response", minWidth: 100},
   ];
 
-  const sample_chart_data = [
+  const rows_generic_sample = [
+    { date: "01/02/2023", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 5, krasMutationCount: 3, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Partial"},
+    { date: "02/02/2023", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 6, krasMutationCount: 4, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Stable"},
+    { date: "03/02/2023", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 7, krasMutationCount: 5, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Progressive"},
+    { date: "04/02/2023", smokingStatus: "Yes", cancerStage: "Stage III", mutationCount: 9, krasMutationCount: 6, egfrMutationCount: 3, tp53MutationCount: 0, alkFusionStatus: "Positive", ros1FusionStatus: "Negative", treatment: "Immunotherapy", response: "Stable"},
+    { date: "05/02/2023", smokingStatus: "No", cancerStage: "Stage III", mutationCount: 10, krasMutationCount: 7, egfrMutationCount: 3, tp53MutationCount: 1, alkFusionStatus: "Positive", ros1FusionStatus: "Negative", treatment: "Immunotherapy", response: "Partial"},
+  ];
+
+  const chart_data_sample = [
     {
       name: 'Mutation Count',
       type: 'column',
@@ -93,37 +101,39 @@ export default function ProductsPage() {
     },
   ];
 
-  const rows_generic_sample = [
-    { month: "January", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 5, krasMutationCount: 3, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Partial"},
-    { month: "February", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 6, krasMutationCount: 4, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Stable"},
-    { month: "March", smokingStatus: "Yes", cancerStage: "Stage II", mutationCount: 7, krasMutationCount: 5, egfrMutationCount: 2, tp53MutationCount: 0, alkFusionStatus: "Negative", ros1FusionStatus: "Positive", treatment: "Chemotherapy", response: "Progressive"},
-    { month: "April", smokingStatus: "Yes", cancerStage: "Stage III", mutationCount: 9, krasMutationCount: 6, egfrMutationCount: 3, tp53MutationCount: 0, alkFusionStatus: "Positive", ros1FusionStatus: "Negative", treatment: "Immunotherapy", response: "Stable"},
-    { month: "May", smokingStatus: "No", cancerStage: "Stage III", mutationCount: 10, krasMutationCount: 7, egfrMutationCount: 3, tp53MutationCount: 1, alkFusionStatus: "Positive", ros1FusionStatus: "Negative", treatment: "Immunotherapy", response: "Partial"},
+  const chart_labels_sample = [
+    '01/01/2023',
+    '02/01/2023',
+    '03/01/2023',
+    '04/01/2023',
+    '05/01/2023',
   ];
+
 
   const [rows_generic, setGenericData] = useState([]);
   const [chart_data, setChartData] = useState([]);
+  const [chart_lables, setChartLables] = useState([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:8080/patient/getPatientMutation")
       .then(response => response.json())
       .then(json => {
-        console.log(json)
-        console.log(json)
-        if(json){
-          setGenericData(json)
-        }
-        setGenericData(rows_generic_sample)
+        console.log(json, "Generic Data")
+        setGenericData(json)
       })
 
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:8080/patient/getMutationCount")
     .then(response => response.json())
     .then(json => {
-      console.log(json)
-      if(json){
-        setChartData(json)
-      }
-      setChartData(sample_chart_data)
+      console.log(json, "Chart Data")
+      setChartData(json)
+    })
+
+    fetch("http://localhost:8080/patient/getMutationCountDates")
+    .then(response => response.json())
+    .then(json => {
+      console.log(json, "Chart Labels")
+      setChartLables(json)
     })
   
   }, []);
@@ -233,7 +243,7 @@ export default function ProductsPage() {
             <TableBody>
               {rows_pathalogy.map((row) => (
                 <TableRow key={row.id}>
-                  <TableCell align="left">{row.month}</TableCell>
+                  <TableCell align="left">{row.date}</TableCell>
                   <TableCell align="left">{row.wbcCount}</TableCell>
                   <TableCell align="left">{row.rbcCount}</TableCell>
                   <TableCell align="left">{row.hemoglobin}</TableCell>
@@ -257,14 +267,8 @@ export default function ProductsPage() {
           <AppWebsiteVisits
             title="Generic Alteration"
             subheader="Small cell lung cancer(NSCLC), which is the most common type of lung cancer"
-            chartLabels={[
-              '01/01/2023',
-              '02/01/2023',
-              '03/01/2023',
-              '04/01/2023',
-              '05/01/2023',
-            ]}
-            chartData={chart_data}
+            chartLabels={chart_labels_sample}
+            chartData={chart_data_sample}
           />
           <Table>
             <TableHead>
@@ -278,9 +282,9 @@ export default function ProductsPage() {
             </TableHead>
 
             <TableBody>
-              {rows_generic.map((row) => (
+              {rows_generic_sample.map((row) => (
                 <TableRow key={row.id}>
-                  <TableCell align="left">{row.month}</TableCell>
+                  <TableCell align="left">{row.date}</TableCell>
                   <TableCell align="left">{row.smokingStatus}</TableCell>
                   <TableCell align="left">{row.cancerStage}</TableCell>
                   <TableCell align="left">{row.mutationCount}</TableCell>
