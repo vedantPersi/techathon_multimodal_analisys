@@ -75,7 +75,7 @@ function applySortFilter(array, comparator, query) {
 export default function UserPage() {
   useEffect(() => {
     //fetch("http://localhost:8080/patient/get")
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:8080/patient/get")
       .then(response => response.json())
       .then(json => {
         console.log(json)
@@ -175,7 +175,7 @@ export default function UserPage() {
   return (
     <>
       <Helmet>
-        <title> Patients List </title>
+        <title>OncoGuide</title>
       </Helmet>
 
       <Container>
@@ -211,7 +211,7 @@ export default function UserPage() {
                     return (
                       
                       <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser}
-                        onClick={()=>navigate("/dashboard/userDetails")}
+                        onClick={()=>navigate("/dashboard/patientDetails")}
                       >
                         {/* <TableCell padding="checkbox">
                           <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} />

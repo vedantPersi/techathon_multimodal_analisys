@@ -112,7 +112,7 @@ export default function ProductsPage() {
 
   const [rows_generic, setGenericData] = useState([]);
   const [chart_data, setChartData] = useState([]);
-  const [chart_lables, setChartLables] = useState([]);
+  const [chart_labels, setChartLables] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:8080/patient/getPatientMutation")
@@ -230,7 +230,12 @@ export default function ProductsPage() {
             Blood Test Reports
           </Typography>
           <Table>
-            <TableHead>
+            <TableHead sx={{
+              "& th": {
+                color: "rgba(30, 30, 30)",
+                backgroundColor: "rgb(255 192 132)"
+              }
+            }}>
               <TableRow>
                 {columns_pathalogy.map((column) => (
                   <TableCell key={column.id} align="left" style={{ minWidth: column.minWidth }}>
@@ -267,12 +272,18 @@ export default function ProductsPage() {
           <AppWebsiteVisits
             title="Generic Alteration"
             subheader="Small cell lung cancer(NSCLC), which is the most common type of lung cancer"
-            chartLabels={chart_labels_sample}
-            chartData={chart_data_sample}
+            chartLabels={chart_labels}
+            chartData={chart_data}
           />
+          <br></br>
           <Table>
-            <TableHead>
-              <TableRow>
+            <TableHead sx={{
+              "& th": {
+                color: "rgba(30, 30, 30)",
+                backgroundColor: "rgb(255 192 132)"
+              }
+            }}>
+            <TableRow>
                 {columns_generic.map((column) => (
                   <TableCell key={column.id} align="left" style={{ minWidth: column.minWidth }}>
                     {column.label}
@@ -282,7 +293,7 @@ export default function ProductsPage() {
             </TableHead>
 
             <TableBody>
-              {rows_generic_sample.map((row) => (
+              {rows_generic.map((row) => (
                 <TableRow key={row.id}>
                   <TableCell align="left">{row.date}</TableCell>
                   <TableCell align="left">{row.smokingStatus}</TableCell>

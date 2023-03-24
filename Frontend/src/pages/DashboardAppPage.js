@@ -68,7 +68,7 @@ export default function DashboardAppPage() {
                 '10/01/2023',
                 '11/01/2023',
               ]}
-              chartData={ [
+              chartData={[
                 {
                   name: 'Happy',
                   type: 'column',
