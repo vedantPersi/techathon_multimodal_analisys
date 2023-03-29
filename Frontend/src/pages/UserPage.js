@@ -75,7 +75,7 @@ function applySortFilter(array, comparator, query) {
 export default function UserPage() {
   useEffect(() => {
     //fetch("http://localhost:8080/patient/get")
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:8080/patient/get")
       .then(response => response.json())
       .then(json => {
         console.log(json)
@@ -237,7 +237,7 @@ export default function UserPage() {
                         <TableCell align="left">{weight}</TableCell>
 
                         <TableCell align="left">
-                        <Label>{survivalStatus ? 'Alive' : 'Dead'}</Label>
+                        <Label>{survivalStatus ? 'Alive' : 'Deceased'}</Label>
                         </TableCell>
 
                         

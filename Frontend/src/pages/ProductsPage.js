@@ -32,16 +32,16 @@ export default function ProductsPage() {
     setOpenFilter(false);
   };
 
-  const columns_pathalogy = [
+ const columns_pathalogy = [
     { id: "date", label: "Date", minWidth: 100},
-    { id: "wbcCount", label: "WBC Count", minWidth: 100},
-    { id: "rbcCount", label: "RBC Count", minWidth: 100},
-    { id: "hemoglobin", label: "Hemoglobin", minWidth: 100},
-    { id: "hematocrit", label: "Hematocrit", minWidth: 100},
-    { id: "plateletCount", label: "Platelet count", minWidth: 100},
-    { id: "sodium", label: "Sodium", minWidth: 100},
-    { id: "potassium", label: "Potassium", minWidth: 100},
-    { id: "chloride", label: "Chloride", minWidth: 100},
+    { id: "wbcCount", label: "WBC Count (cells/microliter)", minWidth: 100},
+    { id: "rbcCount", label: "RBC Count (cells/microliter)", minWidth: 100},
+    { id: "hemoglobin", label: "Hemoglobin (grams/dL)", minWidth: 100},
+    { id: "hematocrit", label: "Hematocrit (%)", minWidth: 100},
+    { id: "plateletCount", label: "Platelet count (cells/microliter)", minWidth: 100},
+    { id: "sodium", label: "Sodium (mEq/L)", minWidth: 100},
+    { id: "potassium", label: "Potassium (mEq/L)", minWidth: 100},
+    { id: "chloride", label: "Chloride (mEq/L)", minWidth: 100},
   ];
 
   const rows_pathalogy = [
@@ -61,7 +61,7 @@ export default function ProductsPage() {
     { id: "egfrMutationCount", label: "EGFR Mutation Count", minWidth: 100},
     { id: "tp53MutationCount", label: "TP53 Mutation Count", minWidth: 100},
     { id: "alkFusionStatus", label: "ALK Fusion Status", minWidth: 100},
-    { id: "ros1FusionStatus", label: "ROS1 Fucion Status", minWidth: 100},
+    { id: "ros1FusionStatus", label: "ROS1 Fusion Status", minWidth: 100},
     { id: "treatment", label: "Treatment", minWidth: 100},
     { id: "response", label: "Response", minWidth: 100},
   ];
@@ -112,7 +112,7 @@ export default function ProductsPage() {
 
   const [rows_generic, setGenericData] = useState([]);
   const [chart_data, setChartData] = useState([]);
-  const [chart_lables, setChartLables] = useState([]);
+  const [chart_labels, setChartLables] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:8080/patient/getPatientMutation")
@@ -266,9 +266,9 @@ export default function ProductsPage() {
         <Grid item xs={12} md={6} lg={12}>
           <AppWebsiteVisits
             title="Generic Alteration"
-            subheader="Small cell lung cancer(NSCLC), which is the most common type of lung cancer"
-            chartLabels={chart_labels_sample}
-            chartData={chart_data_sample}
+            subheader="Non Small cell lung cancer(NSCLC), which is the most common type of lung cancer"
+            chartLabels={chart_labels}
+            chartData={chart_data}
           />
           <Table>
             <TableHead>
@@ -282,7 +282,7 @@ export default function ProductsPage() {
             </TableHead>
 
             <TableBody>
-              {rows_generic_sample.map((row) => (
+              {rows_generic.map((row) => (
                 <TableRow key={row.id}>
                   <TableCell align="left">{row.date}</TableCell>
                   <TableCell align="left">{row.smokingStatus}</TableCell>

@@ -68,7 +68,9 @@ export default function LoginPage() {
         )}
 
         <Container maxWidth="sm">
+         
           <StyledContent>
+          <h1>OncoGuide</h1>
             <Typography variant="h4" gutterBottom>
               Sign in 
             </Typography>
