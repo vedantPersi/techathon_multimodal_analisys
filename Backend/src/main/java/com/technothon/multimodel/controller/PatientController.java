@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.technothon.multimodel.entity.MultiBarGraph;
+import com.technothon.multimodel.entity.MutationCount;
 import com.technothon.multimodel.entity.Mutationgraph;
 import com.technothon.multimodel.entity.Patient;
 import com.technothon.multimodel.entity.PatientDashboard;
@@ -44,7 +45,7 @@ public class PatientController {
 	 @PostMapping(value = "/upload")
 	  public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
 	    String message = "";
-
+	    String duplicate = "";
 //	    if (Helper.hasExcelFormat(file)) {
 	      
 	    		excelConversion.excelToDb(file);
@@ -152,15 +153,28 @@ public class PatientController {
 	 
 	 
 	 
-	 @GetMapping(value = "/getMultiBarGraph")
-	 public ResponseEntity<MultiBarGraph> getGraph() {
+//	 @GetMapping(value = "/getMultiBarGraph")
+//	 public ResponseEntity<MultiBarGraph> getGraph() {
+//
+//		  
+//		 return ResponseEntity.status(HttpStatus.OK).body(mutationgraphImpl.findAllByColumn());
+//		 		 
+//	 }
+	 
+	 @GetMapping(value = "/getMutationCount")
+	 public ResponseEntity<List<MutationCount>> getMutationCount() {
 
 		  
 		 return ResponseEntity.status(HttpStatus.OK).body(mutationgraphImpl.findAllByColumn());
-		 
-		
-		 
-		 
+		 		 
+	 }
+	 
+	 @GetMapping(value = "/getMutationCountDates")
+	 public ResponseEntity<List<String>> getMutationCountDates() {
+
+		  
+		 return ResponseEntity.status(HttpStatus.OK).body(mutationgraphImpl.findByAllDates());
+		 		 
 	 }
 	
 }
