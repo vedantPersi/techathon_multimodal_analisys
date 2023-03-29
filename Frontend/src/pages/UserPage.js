@@ -175,7 +175,7 @@ export default function UserPage() {
   return (
     <>
       <Helmet>
-        <title> Patients List </title>
+        <title>OncoGuide</title>
       </Helmet>
 
       <Container>
@@ -211,7 +211,7 @@ export default function UserPage() {
                     return (
                       
                       <TableRow hover key={id} tabIndex={-1} role="checkbox" selected={selectedUser}
-                        onClick={()=>navigate("/dashboard/userDetails")}
+                        onClick={()=>navigate("/dashboard/patientDetails")}
                       >
                         {/* <TableCell padding="checkbox">
                           <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, name)} />

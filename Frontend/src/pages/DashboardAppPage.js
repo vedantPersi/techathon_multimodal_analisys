@@ -69,7 +69,7 @@ export default function DashboardAppPage() {
                 '10/01/2021',
                 '11/01/2021',
               ]}
-              chartData={ [
+              chartData={[
                 {
                   name: 'Satisfied',
                   type: 'line',

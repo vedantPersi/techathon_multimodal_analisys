@@ -230,7 +230,12 @@ export default function ProductsPage() {
             Blood Test Reports
           </Typography>
           <Table>
-            <TableHead>
+            <TableHead sx={{
+              "& th": {
+                color: "rgba(30, 30, 30)",
+                backgroundColor: "rgb(255 192 132)"
+              }
+            }}>
               <TableRow>
                 {columns_pathalogy.map((column) => (
                   <TableCell key={column.id} align="left" style={{ minWidth: column.minWidth }}>
@@ -266,13 +271,21 @@ export default function ProductsPage() {
         <Grid item xs={12} md={6} lg={12}>
           <AppWebsiteVisits
             title="Generic Alteration"
+
             subheader="Non Small cell lung cancer(NSCLC), which is the most common type of lung cancer"
+
             chartLabels={chart_labels}
             chartData={chart_data}
           />
+          <br></br>
           <Table>
-            <TableHead>
-              <TableRow>
+            <TableHead sx={{
+              "& th": {
+                color: "rgba(30, 30, 30)",
+                backgroundColor: "rgb(255 192 132)"
+              }
+            }}>
+            <TableRow>
                 {columns_generic.map((column) => (
                   <TableCell key={column.id} align="left" style={{ minWidth: column.minWidth }}>
                     {column.label}
