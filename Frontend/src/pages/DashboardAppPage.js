@@ -31,7 +31,8 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back
+          <h2>OncoGuide Dashboard</h2> 
+          <h3>Annual Report</h3>
         </Typography>
 
         <Grid container spacing={3}>
@@ -53,42 +54,36 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits 
-              title="Daily Patient Feedback"
+              title="Monthly Patient Feedback"
               subheader="A consolidated view of patients emotions"
               chartLabels={[
-                '01/01/2023',
-                '02/01/2023',
-                '03/01/2023',
-                '04/01/2023',
-                '05/01/2023',
-                '06/01/2023',
-                '07/01/2023',
-                '08/01/2023',
-                '09/01/2023',
-                '10/01/2023',
-                '11/01/2023',
+                '01/01/2021',
+                '02/01/2021',
+                '03/01/2021',
+                '04/01/2021',
+                '05/01/2021',
+                '06/01/2021',
+                '07/01/2021',
+                '08/01/2021',
+                '09/01/2021',
+                '10/01/2021',
+                '11/01/2021',
               ]}
               chartData={[
                 {
-                  name: 'Happy',
-                  type: 'column',
-                  fill: 'solid',
-                  color: '#FFB26B',
-                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
-                },
-                {
-                  name: 'Tired of Medication',
-                  type: 'area',
-                  fill: 'gradient',
-                  color: '#FF7B54',
-                  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
-                },
-                {
-                  name: 'Sad',
+                  name: 'Satisfied',
                   type: 'line',
                   fill: 'solid',
-                  color: '#FFD56F',
-                  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
+                  color: '#04b855',
+                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+                },
+    
+                {
+                  name: 'Not satisfied',
+                  type: 'line',
+                  fill: 'solid',
+                  color: '#d9646c',
+                  data:[39,36,59,52,64,35,45,30,36,25,30],
                 },
               ]}
               />
@@ -99,7 +94,7 @@ export default function DashboardAppPage() {
               title="Treatment Status"
               subheader="Overall satisfaction rate"
               chartData={[
-                { label: 'Treated', value: 658 },
+                { label: 'Treated', value: 500 },
                 { label: 'Undergoing Treatment', value: 49 },
                 { label: 'N/A', value: 23 },
               ]}

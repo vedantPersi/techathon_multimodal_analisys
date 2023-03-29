@@ -237,7 +237,7 @@ export default function UserPage() {
                         <TableCell align="left">{weight}</TableCell>
 
                         <TableCell align="left">
-                        <Label>{survivalStatus ? 'Alive' : 'Dead'}</Label>
+                        <Label>{survivalStatus ? 'Alive' : 'Deceased'}</Label>
                         </TableCell>
 
                         
