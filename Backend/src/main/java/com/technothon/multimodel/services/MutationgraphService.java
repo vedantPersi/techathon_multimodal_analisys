@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.technothon.multimodel.entity.MultiBarGraph;
+import com.technothon.multimodel.entity.MutationCount;
 import com.technothon.multimodel.entity.Mutationgraph;
 
 
@@ -17,6 +18,7 @@ public interface MutationgraphService {
 	 public void deleteById(int caseId);
 	 public void saveAll(List<Mutationgraph> mutationgraph);
 
-	 public MultiBarGraph findAllByColumn();
+	 public List<MutationCount> findAllByColumn();
+	 	List<String> findByAllDates();
 
 }
